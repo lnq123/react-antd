@@ -1,0 +1,8 @@
+.ant-select-selection {
+  background-color: #F8F8F8 !important;
+  border: 0 !important;
+}
+
+.ant-tag-checkable-checked {
+  background: linear-gradient(90deg,rgba(255,132,135,1) 0%,rgba(255,19,103,1) 100%);
+}
