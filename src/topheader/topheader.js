@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 
-class Home extends Component {
+class TopHeader extends Component {
   render () {
     return (
       <div>
-        Home Page
+        Top Header
       </div>
     )
   }
 }
 
-export default Home
+export default TopHeader

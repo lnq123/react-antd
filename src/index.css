@@ -12,18 +12,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-.ant-modal-content {
-  background-color: transparent !important;
-  box-shadow: none !important;
-}
-
-.gradient-icon svg * {
-  fill: url(#rg) !important;
-}
-.ant-input-affix-wrapper .ant-input:not(:last-child){
- 
-color:white;
-background-color: rgba(255, 255, 255, 0.2515);
-border-radius: 15px;
-}

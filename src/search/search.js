@@ -1,21 +1,13 @@
-import React, { Component } from "react";
-import { Row, Col } from "antd";
-import SearchTop from "./search_top";
+import React, { Component } from 'react'
 
-export default class Search extends Component {
-  
-
-  render() {
+class Search extends Component {
+  render () {
     return (
-      <div style={{ background: "#FFFFFF" }}>
-        <Row>
-          <Col span={24}>
-            <SearchTop />
-          </Col>
-          
-          
-        </Row>
+      <div>
+        Search
       </div>
-    );
+    )
   }
 }
+
+export default Search

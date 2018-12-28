@@ -1,5 +1,4 @@
 import { createStore, combineReducers } from 'redux'
-import { uploadInfo } from './upload_info'
 
 /**
  * 这是一个 reducer，形式为 (state, action) => state 的纯函数。
@@ -48,8 +47,6 @@ function user(state = defaultUser, action) {
 const rootReducer = combineReducers({
   counter,
   user,
-  uploadInfo,
-  
 })
 
 // 创建 Redux store 来存放应用的状态。
