@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {Route, BrowserRouter} from 'react-router-dom'
-import TopHeader from './topheader/topheader.js'
-import Home from './home/home.js'
-import Search from './search/search.js'
-import BottomFooter from './bottomfooter/bottomfooter.js'
+import TopHeader from './pages/topheader/topheader'
+import Home from './pages/home/home.js'
+import Search from './pages/search/search.js'
+import BottomFooter from './pages/bottomfooter/bottomfooter.js'
 
 class App extends Component {
   render() {
@@ -12,7 +12,10 @@ class App extends Component {
         <div>
           <TopHeader></TopHeader>
           <Route exact path="/" component={ Home } />
-          <Route exact path="/search" component={ Search } />
+          <Route exact path="/news" component={ Search } />
+          <Route exact path="/school" component={ Search } />
+          <Route exact path="/activity" component={ Search } />
+          <Route exact path="/contact" component={ Search } />
           <BottomFooter></BottomFooter>
         </div>
       </BrowserRouter>
