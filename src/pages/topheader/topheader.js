@@ -1,11 +1,17 @@
 import React, { Component } from 'react'
-import { HeaderWrapper, Header, Content } from "./style";
+//import { HeaderWrapper, } from "./style";
+import './header.css'
+import { Row, Col } from 'antd';
 class TopHeader extends Component {
   render () {
     return (
-      <HeaderWrapper>
-        Top Header
-      </HeaderWrapper>
+      <div className='headerWrapper'>
+        <Row className='HeaderTitleWidth'>
+          <Col>
+          dsfdsfdsf
+          </Col>
+        </Row>
+      </div>
     )
   }
 }
