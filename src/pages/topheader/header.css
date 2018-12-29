@@ -6,6 +6,11 @@
   justify-content: center;
   align-items: center;
 }
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .HeaderTitleWidth {
   width: 1200px;
   color: rgba(188, 188, 188, 1);
@@ -35,7 +40,7 @@
 }
 
 .HeaderSearchIcon {
-    color: rgba(188, 188, 188, 1);
+  color: rgba(188, 188, 188, 1);
   margin-left: 220px;
 }
 .HeaderLogin {
@@ -49,5 +54,5 @@
   margin-left: 35px;
 }
 a:hover {
-    color:rgba(255,255,255,1);
+  color: rgba(255, 255, 255, 1);
 }

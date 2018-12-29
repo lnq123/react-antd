@@ -1,0 +1,45 @@
+.BottomWrapper{
+border-top:1px solid rgba(188,188,188);
+height: 300px;
+display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.BottomWidth{
+    width: 1200px;
+  color: rgba(188, 188, 188, 1);
+}
+.BottomLeftTitle{
+    margin: 30px 0;
+    width:64px;
+height:22px;
+font-size:16px;
+font-family:PingFangSC-Medium;
+font-weight:500;
+color:rgba(155,155,155,1);
+line-height:22px;
+}
+.BottomBrand{
+    position: absolute;
+    bottom: -50px;
+    width:64px;
+height:22px;
+font-size:16px;
+font-family:PingFangSC-Medium;
+font-weight:500;
+color:rgba(155,155,155,1);
+line-height:22px;
+}
+.BottomBrandImg1{
+    position: absolute;
+    bottom: -125px;
+}
+.BottomBrandImg2{
+    position: absolute;
+    bottom: -215px;
+}
+.BottomBrandImg3{
+    position: absolute;
+    bottom: -190px;
+    left: 275px;
+}
