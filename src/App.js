@@ -16,6 +16,7 @@ class App extends Component {
           <Route exact path="/school" component={ Search } />
           <Route exact path="/activity" component={ Search } />
           <Route exact path="/contact" component={ Search } />
+          <Route exact path="/search" component={ Search } />
           <BottomFooter></BottomFooter>
         </div>
       </BrowserRouter>
