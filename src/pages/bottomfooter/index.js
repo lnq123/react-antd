@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Row, Col } from "antd";
-import IMG1 from '../../image/5.png'
-import IMG2 from '../../image/4.png'
-import IMG3 from '../../image/7.png'
 import './bottom.css'
-import IMG4 from '../../image/1.png'
-import IMG5 from '../../image/2.png'
-import IMG6 from '../../image/3.png'
+const IMG1 = '/image/5.png'
+const IMG2 = '/image/4.png'
+const IMG3 = '/image/7.png'
+
+const IMG4 = '/image/1.png'
+const IMG5 = '/image/2.png'
+const IMG6 = '/image/3.png'
 
 class BottomFooter extends Component {
   render () {
