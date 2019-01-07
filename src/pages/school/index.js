@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import TopHeader from "../topheader";
 import "./index.css";
 import { Row, Col } from "antd";
 const img_background = "/image/school_backkground.png";
@@ -8,6 +9,8 @@ const img_sto = "/image/school_sto.png";
 class School extends Component {
   render() {
     return (
+      <Fragment>
+        <TopHeader index={3} />
       <Row>
         <Col span={24}>
           <div
@@ -34,7 +37,7 @@ class School extends Component {
             </Col>
           </Row>
         </Col>
-      </Row>
+      </Row></Fragment>
     );
   }
 }
