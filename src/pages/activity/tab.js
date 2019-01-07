@@ -15,7 +15,7 @@ class MyTag extends React.Component {
 }
 export default () =>(
     <Fragment>
-    <Row style={{borderTop:'2px solid #E5E5E5'}}>
+    <Row style={{borderTop:'2px solid #E5E5E5',padding:'15px 0'}}>
         <Col span={2}>
         <div>时间</div>
         </Col>
@@ -30,7 +30,7 @@ export default () =>(
         <MyTag><div>本月</div></MyTag>
         </Col>
     </Row>
-    <Row style={{borderTop:'2px solid #E5E5E5', borderBottom:'2px solid #E5E5E5'}}>
+    <Row style={{borderTop:'2px solid #E5E5E5', borderBottom:'2px solid #E5E5E5',padding:'15px 0'}}>
         <Col span={2}>
         <div>地点</div>
         </Col>
