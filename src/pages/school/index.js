@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./index.css";
 import { Row, Col } from "antd";
-const img_background = "/image/school_backkground.png";
-const img_serve = "/image/school_serve.png";
-const img_sto = "/image/school_sto.png";
+const img_background = "/image/school/backkground.png";
+const img_serve = "/image/school/serve.png";
+const img_sto = "/image/school/sto.png";
 
 class School extends Component {
   render() {
@@ -20,7 +20,7 @@ class School extends Component {
             }}
           />
         </Col>
-        <Col span={24} className=" DisplayCenter">
+        <Col span={24} className="DisplayCenter">
           <Row className="BottomWidth">
             <Col span={12} style={{ textAlign: "center" }}>
               <img className="contact_options_img" src={img_serve} alt="" />

@@ -3,10 +3,10 @@ import { Row, Col } from "antd";
 import "./index.css";
 
 const imgtitle = "/image/6.png";
-const img_background = "/image/contact_background.png";
-const img_ad = "/image/contact_ad.png";
-const img_feedback = "/image/contact_feedback.png";
-const img_us = "/image/contact_us.png";
+const img_background = "/image/contact/background.png";
+const img_ad = "/image/contact/ad.png";
+const img_feedback = "/image/contact/feedback.png";
+const img_us = "/image/contact/us.png";
 class Contact extends Component {
   render() {
     return (
