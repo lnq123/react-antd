@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from "react";
-import TopHeader from "../topheader";
+import React, { Component } from "react";
 import "./index.css";
 import { Row, Col } from "antd";
 const img_background = "/image/school_backkground.png";
@@ -9,8 +8,6 @@ const img_sto = "/image/school_sto.png";
 class School extends Component {
   render() {
     return (
-      <Fragment>
-        <TopHeader index={3} />
       <Row>
         <Col span={24}>
           <div
@@ -30,14 +27,17 @@ class School extends Component {
               <div className="contact_options_title">服务</div>
               <button className="contact_options_btn">了解更多</button>
             </Col>
-            <Col span={12} style={{ textAlign: "center",  marginBottom: "120px"}}>
+            <Col
+              span={12}
+              style={{ textAlign: "center", marginBottom: "120px" }}
+            >
               <img className="contact_options_img" src={img_sto} alt="" />
               <div className="contact_options_title">STO</div>
               <button className="contact_options_btn">了解更多</button>
             </Col>
           </Row>
         </Col>
-      </Row></Fragment>
+      </Row>
     );
   }
 }

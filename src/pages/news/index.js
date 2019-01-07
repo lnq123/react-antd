@@ -1,13 +1,7 @@
-import React, { Component, Fragment } from "react";
-import TopHeader from "../topheader";
+import React, { Component } from "react";
 class News extends Component {
   render() {
-    return (
-      <Fragment>
-        <TopHeader index={2} />
-        <div>News Page</div>
-      </Fragment>
-    );
+    return <div>News Page</div>;
   }
 }
 
