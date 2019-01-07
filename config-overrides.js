@@ -9,7 +9,7 @@ module.exports = function override(config, env) {
   )
   config = rewireLess.withLoaderOptions({
     modifyVars: {
-      '@primary-color': '#F8E71C',
+      // '@primary-color': '#F8E71C',
     },
     javascriptEnabled: true,
   })(config, env)
