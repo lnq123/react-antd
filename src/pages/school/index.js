@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./index.css";
-import img_background from "../../image/school_backkground.png";
-import img_serve from "../../image/school_serve.png";
-import img_sto from "../../image/school_sto.png";
 import { Row, Col } from "antd";
+const img_background = "/image/school_backkground.png";
+const img_serve = "/image/school_serve.png";
+const img_sto = "/image/school_sto.png";
+
 class School extends Component {
   render() {
     return (

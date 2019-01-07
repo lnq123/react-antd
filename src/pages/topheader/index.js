@@ -2,8 +2,8 @@ import React, { Component } from "react";
 //import { HeaderWrapper, } from "./style";
 import { Icon } from 'antd';
 import "./header.css";
-import Img6 from "../../image/6.png";
 import { Row, Col } from "antd";
+const Img6 = "/image/6.png";
 class TopHeader extends Component {
   
   render() {

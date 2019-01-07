@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import img_background from "../../image/contact_background.png";
-import img_ad from "../../image/contact_ad.png";
-import img_feedback from "../../image/contact_feedback.png";
-import img_us from "../../image/contact_us.png";
 import { Row, Col } from "antd";
-import imgtitle from "../../image/6.png";
 import "./index.css";
+
+const imgtitle = "/image/6.png";
+const img_background = "/image/contact_background.png";
+const img_ad = "/image/contact_ad.png";
+const img_feedback = "/image/contact_feedback.png";
+const img_us = "/image/contact_us.png";
 class Contact extends Component {
   render() {
     return (
