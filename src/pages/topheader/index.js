@@ -3,31 +3,20 @@ import React, { Component } from "react";
 import { Icon } from "antd";
 import "./header.css";
 import { Row, Col } from "antd";
-const p=window.location.pathname
-let index = 1
+const p = window.location.pathname;
+var index = 1;
 class TopHeader extends Component {
-  pickIndex(index) {
-    switch (window.location.pathname) {
-      case "/news":
-        index = 2;
-        break;
-      case "/school":
-        index = 3;
-        break;
-      case "/activity":
-        index = 4;
-        break;
-      case "/contact":
-        index = 5;
-        break;
-      default:
-        index = 1;
-        break;
-    }
-  }
 
   componentWillMount() {
-    p==="/news"?index = 2:p==="/school"?index = 3:p==="/activity"?index = 4:p==="/contact"?index = 5:index=1
+    p === "/news"
+      ? (index = 2)
+      : (p.indexOf("school")!=-1)
+      ? (index = 3)
+      : (p.indexOf("activity")!=-1)
+      ? (index = 4)
+      : (p.indexOf("contact")!=-1)
+      ? (index = 5)
+      : (index = 1);
   }
   render() {
     return (
