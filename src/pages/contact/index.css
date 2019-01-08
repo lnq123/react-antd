@@ -68,3 +68,48 @@
   color: #999999;
   line-height: 40px;
 }
+.contact_feedback_field {
+  margin-top: 25px;
+  font-size: 18px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  line-height: 25px;
+}
+.contact_feedback_inputname{
+  margin-top: 10px;
+  width:564px;
+height:60px;
+background:rgba(248,248,248,1);
+border-radius:6px;
+border:1px solid rgba(188,188,188,1);
+}
+.contact_feedback_email{
+  margin-top: 10px;
+  width:1200px;
+  height:60px;
+  background:rgba(248,248,248,1);
+  border-radius:6px;
+  border:1px solid rgba(188,188,188,1);
+}
+.contact_feedback_inputArea{
+  margin-top: 10px;
+  width:1200px;
+  height:350px;
+  background:rgba(248,248,248,1);
+  border-radius:6px;
+  border:1px solid rgba(188,188,188,1);
+}
+.contact_feedback_btn{
+  width:185px;
+height:48px;
+border-radius:6px;
+border:2px solid rgba(0,0,0,1);
+font-size:16px;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:rgba(0,0,0,1);
+line-height:22px;
+margin: 50px 0 85px
+}
+
