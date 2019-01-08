@@ -28,14 +28,22 @@ class Contact extends Component {
         <Col span={24} className=" DisplayCenter">
           <Row className="BottomWidth">
             <Col span={12} style={{ textAlign: "center" }}>
-              <img className="contact_options_img" src={img_ad} alt="" />
-              <div className="contact_options_title">广告</div>
-              <button className="contact_options_btn">了解更多</button>
+              <a href="/contact/ad">
+                <img className="contact_options_img" src={img_ad} alt="" />
+                <div className="contact_options_title">广告</div>
+                <button className="contact_options_btn">了解更多</button>
+              </a>
             </Col>
             <Col span={12} style={{ textAlign: "center" }}>
-              <img className="contact_options_img" src={img_feedback} alt="" />
-              <div className="contact_options_title">意见反馈</div>
-              <button className="contact_options_btn">了解更多</button>
+              <a href="/contact/feedback">
+                <img
+                  className="contact_options_img"
+                  src={img_feedback}
+                  alt=""
+                />
+                <div className="contact_options_title">意见反馈</div>
+                <button className="contact_options_btn">了解更多</button>
+              </a>
             </Col>
             <Col
               span={12}
