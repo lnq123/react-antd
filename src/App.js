@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route, BrowserRouter } from "react-router-dom";
 
+import Header from "./pages/topheader";
 import Home from "./pages/home";
 import Search from "./pages/search";
 import BottomFooter from "./pages/bottomfooter";
@@ -16,7 +17,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          
+          <Header/>
           <Route exact path="/" component={Home} />
           <Route exact path="/news" component={News} />
           <Route exact path="/school" component={School} />
