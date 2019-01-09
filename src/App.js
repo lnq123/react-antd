@@ -8,6 +8,9 @@ import School from "./pages/school";
 import News from "./pages/news";
 import Activity from "./pages/activity";
 import Contact from "./pages/contact";
+import ContactAD from "./pages/contact/ad";
+import ContactFeedback from "./pages/contact/feedback";
+
 class App extends Component {
   render() {
     return (
@@ -19,6 +22,8 @@ class App extends Component {
           <Route exact path="/school" component={School} />
           <Route exact path="/activity" component={Activity} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/contact/ad" component={ContactAD} />
+          <Route exact path="/contact/feedback" component={ContactFeedback} />
           <Route exact path="/search" component={Search} />
           <BottomFooter />
         </div>
