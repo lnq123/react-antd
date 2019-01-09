@@ -21,6 +21,12 @@
     padding-top: 9px;
 }
 
+.newspageNoDot {
+    height: 20px;
+    width: 20px;
+    background: rgba(0,0,0,0)    
+}
+
 .newspageDayDotGold {
     color: black;
     font-size: 16px;
@@ -32,11 +38,55 @@
     padding-top: 4px;
 }
 
+.newsPage .time {
+    font-size: 14px;
+    color: #999999;
+}
+
+.newsPage .title {
+    font-size: 16px;
+    color: black;
+    margin-left: 10px;
+}
+
+.newsPage .title {
+    font-size: 16px;
+    color: black;
+    margin-left: 10px;
+}
+
+.newsPage .content {
+    font-size: 14px;
+    color: #999999;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    padding-right: 50px;
+}
+
 .newspageDayDot {
     width: 60px;
 }
 
 .newspageTimeline {
-    padding-left: 50px;
     height: 100px;
+}
+
+.newspageNewsItem {
+    margin-left: 50px;
+    height: 60px;
+    /* border: green solid 1px; */
+}
+
+.imgBackground {
+    height: 100px;
+    width: 400px;
+    margin-left: 50px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.loadingSpinner {
+    margin-left: 300px;
+    margin-top: 100px;
 }

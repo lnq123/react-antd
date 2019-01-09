@@ -1,25 +1,15 @@
 import React, { Component } from 'react'
 import { List, Icon, Carousel, Row, Col, Menu, Skeleton, Button } from 'antd';
 import './style.css'
+import { newsService } from '../../_services'
 
 const count = 10;
 const IconText = ({ type, text }) => (
-  <span>
-    <Icon type={type} style={{ marginRight: 8 }} />
-    {text}
-  </span>
+    <span>
+        <Icon type={type} style={{ marginRight: 8 }} />
+        {text}
+    </span>
 );
-
-const listData = [];
-for (let i = 0; i < 10; i++) {
-  listData.push({
-    href: 'http://ant.design',
-    title: `Title ${i + 1}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-    user: 'liuliuliu 7小时前'
-  });
-}
 
 class LeftSide extends Component {
 
@@ -29,53 +19,62 @@ class LeftSide extends Component {
         loading: false,
         data: [],
         list: [],
-      }
-    
-      componentDidMount() {
+    }
+
+    async componentDidMount() {
+        let retNews = await newsService.getHomepage(10, 0)
+
+        if (!retNews) {
+            retNews = []
+        }
+
         this.setState({
-          initLoading: false,
-          data: listData,
-          list: listData,
+            initLoading: false,
+            data: retNews,
+            list: retNews,
         });
-      }
-    
-      onLoadMore = () => {
+    }
+
+    onLoadMore = () => {
         this.setState({
-          loading: true,
-          list: this.state.data.concat([...new Array(count)].map(() => ({ loading: true, name: {} }))),
+            loading: true,
+            list: this.state.data.concat([...new Array(count)].map(() => ({ loading: true, name: {} }))),
         });
         const self = this
-        setTimeout(function () {
-          const data = self.state.data.concat(listData);
-          self.setState({
-            data,
-            list: data,
-            loading: false,
-          }, () => {
-            // Resetting window's offsetTop so as to display react-virtualized demo underfloor.
-            // In real scene, you can using public method of react-virtualized:
-            // https://stackoverflow.com/questions/46700726/how-to-use-public-method-updateposition-of-react-virtualized
-            window.dispatchEvent(new Event('resize'));
-          });
+        setTimeout(async function () {
+            const page = self.state.data.length / count
+            let retNews = await newsService.getHomepage(10, page)
+
+            const data = self.state.data.concat(retNews);
+            self.setState({
+                data,
+                list: data,
+                loading: false,
+            }, () => {
+                // Resetting window's offsetTop so as to display react-virtualized demo underfloor.
+                // In real scene, you can using public method of react-virtualized:
+                // https://stackoverflow.com/questions/46700726/how-to-use-public-method-updateposition-of-react-virtualized
+                window.dispatchEvent(new Event('resize'));
+            });
         }, 500);
-      }
-    
-      handleClick = (e) => {
+    }
+
+    handleClick = (e) => {
         this.setState({
-          current: e.key,
+            current: e.key,
         });
-      }
+    }
 
     render() {
         const { initLoading, loading, list } = this.state;
 
         const loadMore = !initLoading && !loading ? (
-          <div style={{
-            textAlign: 'center', marginTop: 12, height: 32, lineHeight: '32px'
-          }}
-          >
-            <Button onClick={this.onLoadMore}><Icon type="down" />查看更多</Button>
-          </div>
+            <div style={{
+                textAlign: 'center', marginTop: 12, height: 32, lineHeight: '32px'
+            }}
+            >
+                <Button onClick={this.onLoadMore}><Icon type="down" />查看更多</Button>
+            </div>
         ) : null;
 
         return (
@@ -139,17 +138,17 @@ class LeftSide extends Component {
                                             description={
                                                 <Row>
                                                     <Col>
-                                                        {item.description}
+                                                        {item.content}
                                                     </Col>
                                                     <br />
                                                     <br />
                                                     <Col>
                                                         <Row>
                                                             <Col span={20}>
-                                                                {item.user}
+                                                                liuliuliu 7小时前
                                                             </Col>
                                                             <Col span={4}>
-                                                                <IconText type="eye" text="4568" />
+                                                                <IconText type="eye" text={item.views} />
                                                             </Col>
                                                         </Row>
                                                     </Col>

@@ -1,18 +1,36 @@
 import React, { Component } from 'react'
 import { List, Icon, Carousel, Row, Col, Timeline } from 'antd';
 import './style.css'
-
-
-const listData2 = [];
-for (let i = 0; i < 5; i++) {
-  listData2.push({
-    title: `首枚 Block III GPS 衛星順利升空`,
-    user: '昨天'
-  });
-}
+import { quickNewsService, newsService } from '../../_services'
 
 class RightSide extends Component {
+
+    state = {
+        quickNewsList: [],
+        hotNewsList: []
+    }
+
+    async componentDidMount() {
+        
+        let retQuickNews = await quickNewsService.get()
+        let retNews = await newsService.getHot()
+
+        if (!retQuickNews) {
+            retQuickNews = []
+        }
+        if (!retNews) {
+            retNews = []
+        }
+        retQuickNews.pop()
+        this.setState({
+            quickNewsList: retQuickNews,
+            hotNewsList: retNews
+        })
+
+    }
+
     render() {
+        const { quickNewsList, hotNewsList } = this.state
         return (
             <Col span={8} className="">
                 <Row style={{ marginBottom: '25px' }}>
@@ -26,96 +44,29 @@ class RightSide extends Component {
                 <Row>
                     <Col style={{ marginBottom: '25px' }}>
                         <Timeline>
-                            <Timeline.Item color="#EBC44D">
-                                <Row>
-                                    <Col span={24} style={{ fontSize: '20px', color: '#666666' }}>
-                                        以太坊智能合约Fountain(FTN)溢出漏洞已解决，FTN恢复服务
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col span={10} style={{ fontSize: '18px', color: '#999999' }}>
-                                        1小时前
-                                    </Col>
-                                    <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
-                                        利好 7 <Icon style={{ fontSize: '16px', color: 'green' }} type="rise" />
-                                    </Col>
-                                    <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
-                                        利空 3 <Icon style={{ fontSize: '16px', color: 'red' }} type="fall" />
-                                    </Col>
-                                </Row>
-                            </Timeline.Item>
-                            <Timeline.Item color="#EBC44D">
-                                <Row>
-                                    <Col span={24} style={{ fontSize: '20px', color: '#666666' }}>
-                                        以太坊智能合约Fountain(FTN)溢出漏洞已解决，FTN恢复服务
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col span={10} style={{ fontSize: '18px', color: '#999999' }}>
-                                        1小时前
-                                    </Col>
-                                    <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
-                                        利好 7 <Icon style={{ fontSize: '16px', color: 'green' }} type="rise" />
-                                    </Col>
-                                    <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
-                                        利空 3 <Icon style={{ fontSize: '16px', color: 'red' }} type="fall" />
-                                    </Col>
-                                </Row>
-                            </Timeline.Item>
-                            <Timeline.Item color="#EBC44D">
-                                <Row>
-                                    <Col span={24} style={{ fontSize: '20px', color: '#666666' }}>
-                                        以太坊智能合约Fountain(FTN)溢出漏洞已解决，FTN恢复服务
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col span={10} style={{ fontSize: '18px', color: '#999999' }}>
-                                        1小时前
-                                    </Col>
-                                    <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
-                                        利好 7 <Icon style={{ fontSize: '16px', color: 'green' }} type="rise" />
-                                    </Col>
-                                    <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
-                                        利空 3 <Icon style={{ fontSize: '16px', color: 'red' }} type="fall" />
-                                    </Col>
-                                </Row>
-                            </Timeline.Item>
-                            <Timeline.Item color="#EBC44D">
-                                <Row>
-                                    <Col span={24} style={{ fontSize: '20px', color: '#666666' }}>
-                                        以太坊智能合约Fountain(FTN)溢出漏洞已解决，FTN恢复服务
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col span={10} style={{ fontSize: '18px', color: '#999999' }}>
-                                        1小时前
-                                    </Col>
-                                    <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
-                                        利好 7 <Icon style={{ fontSize: '16px', color: 'green' }} type="rise" />
-                                    </Col>
-                                    <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
-                                        利空 3 <Icon style={{ fontSize: '16px', color: 'red' }} type="fall" />
-                                    </Col>
-                                </Row>
-                            </Timeline.Item>
-                            <Timeline.Item color="#EBC44D">
-                                <Row>
-                                    <Col span={24} style={{ fontSize: '20px', color: '#666666' }}>
-                                        以太坊智能合约Fountain(FTN)溢出漏洞已解决，FTN恢复服务
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col span={10} style={{ fontSize: '18px', color: '#999999' }}>
-                                        1小时前
-                                    </Col>
-                                    <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
-                                        利好 7 <Icon style={{ fontSize: '16px', color: 'green' }} type="rise" />
-                                    </Col>
-                                    <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
-                                        利空 3 <Icon style={{ fontSize: '16px', color: 'red' }} type="fall" />
-                                    </Col>
-                                </Row>
-                            </Timeline.Item>
+                            {
+                                quickNewsList && quickNewsList.length > 0 &&
+                                quickNewsList.map((item, index) => (
+                                    <Timeline.Item color="#EBC44D">
+                                        <Row>
+                                            <Col span={24} style={{ fontSize: '20px', color: '#666666' }}>
+                                                {item.title}
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col span={10} style={{ fontSize: '18px', color: '#999999' }}>
+                                                1小时前
+                                            </Col>
+                                            <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
+                                                利好 7 <Icon style={{ fontSize: '16px', color: 'red' }} type="rise" />
+                                            </Col>
+                                            <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
+                                                利空 3 <Icon style={{ fontSize: '16px', color: 'green' }} type="fall" />
+                                            </Col>
+                                        </Row>
+                                    </Timeline.Item>
+                                ))
+                            }
                         </Timeline>
                     </Col>
                     <Col style={{ marginBottom: '45px' }}>
@@ -130,7 +81,7 @@ class RightSide extends Component {
                                 <List
                                     itemLayout="vertical"
                                     size="small"
-                                    dataSource={listData2}
+                                    dataSource={hotNewsList}
                                     renderItem={item => (
                                         <List.Item
                                             key={item.title}
@@ -141,7 +92,7 @@ class RightSide extends Component {
                                                 description={
                                                     <Row>
                                                         <Col>
-                                                            {item.user}
+                                                            昨天
                                                         </Col>
                                                     </Row>
                                                 }
