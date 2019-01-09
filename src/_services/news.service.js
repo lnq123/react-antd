@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://localhost:1337'
+const url = 'http://192.168.12.25:1337'
 
 
 export const newsService = {

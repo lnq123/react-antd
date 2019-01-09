@@ -5,7 +5,7 @@ import './index.css'
 const TabPane = Tabs.TabPane;
 
 export default () =>(
-    <Tabs defaultActiveKey="1" className='border-missing'>
+    <Tabs defaultActiveKey="1" className='border-missing test'>
     <TabPane tab="全部" key="1"><Tab /></TabPane>
     <TabPane tab="峰会" key="2"><Tab /></TabPane>
     <TabPane tab="系列活动" key="3"><Tab /></TabPane>
