@@ -10,11 +10,11 @@ class TopHeader extends Component {
   componentWillMount() {
     p === "/news"
       ? (index = 2)
-      : (p.indexOf("school")!=-1)
+      : (p.indexOf("school")!==-1)
       ? (index = 3)
-      : (p.indexOf("activity")!=-1)
+      : (p.indexOf("activity")!==-1)
       ? (index = 4)
-      : (p.indexOf("contact")!=-1)
+      : (p.indexOf("contact")!==-1)
       ? (index = 5)
       : (index = 1);
   }
