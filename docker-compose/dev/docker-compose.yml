@@ -14,9 +14,9 @@ services:
       - db
     depends_on:
       - mongo
-  template_api_dev:
+  yl24vh_api_dev:
     build:
-      context: ../../server/
+      context: ../../backend/
       dockerfile: ./docker/dev/Dockerfile
     ports:
      - "1337:1337"
@@ -25,8 +25,19 @@ services:
     depends_on:
       - mongo
     volumes:
-      - ./../../server/api:/app/api
-      - ./../../server/config:/app/config
+      - ./../../backend/api:/app/api
+      - ./../../backend/config:/app/config
+      - ./../../backend/assets:/app/assets
+  yl24vh_client_dev:
+    build:
+      context: ../../front/
+      dockerfile: ./docker/dev/Dockerfile
+    ports:
+     - "3000:3000"
+    volumes:
+      - ./../../front/src:/app/src
+      - ./../../front/public:/app/public
+
 networks:
   db:
    driver: bridge
