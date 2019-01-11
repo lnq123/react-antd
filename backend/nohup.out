@@ -1,0 +1,143 @@
+
+> template_sails@1.0.0 start-prod /Users/qwe/Documents/GitHub/react-antd/backend
+> cd docker-compose/prod && docker-compose up --force-recreate
+
+Recreating prod_mongo_1_a6c6ac3d27d3 ... 
+[1A[2KRecreating prod_mongo_1_a6c6ac3d27d3 ... [32mdone[0m[1BRecreating prod_mongo_client_1_514000b92333 ... 
+Recreating prod_template_api_prod_1_ad13c9af2ca4 ... 
+[1A[2KRecreating prod_template_api_prod_1_ad13c9af2ca4 ... [32mdone[0m[1B[2A[2KRecreating prod_mongo_client_1_514000b92333      ... [32mdone[0m[2BAttaching to prod_mongo_1_a6c6ac3d27d3, prod_template_api_prod_1_ad13c9af2ca4, prod_mongo_client_1_514000b92333
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.414+0000 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
+[32mmongo_client_1_514000b92333 |[0m Waiting for mongo:27017...
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.417+0000 I CONTROL  [initandlisten] MongoDB starting : pid=1 port=27017 dbpath=/data/db 64-bit host=297079b68e84
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.417+0000 I CONTROL  [initandlisten] db version v4.0.5
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.418+0000 I CONTROL  [initandlisten] git version: 3739429dd92b92d1b0ab120911a23d50bf03c412
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.418+0000 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.2g  1 Mar 2016
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.418+0000 I CONTROL  [initandlisten] allocator: tcmalloc
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.418+0000 I CONTROL  [initandlisten] modules: none
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.418+0000 I CONTROL  [initandlisten] build environment:
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.418+0000 I CONTROL  [initandlisten]     distmod: ubuntu1604
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.418+0000 I CONTROL  [initandlisten]     distarch: x86_64
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.418+0000 I CONTROL  [initandlisten]     target_arch: x86_64
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.418+0000 I CONTROL  [initandlisten] options: { net: { bindIpAll: true } }
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.419+0000 I STORAGE  [initandlisten] Detected data files in /data/db created by the 'wiredTiger' storage engine, so setting the active storage engine to 'wiredTiger'.
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.419+0000 I STORAGE  [initandlisten] 
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.419+0000 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.419+0000 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.419+0000 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=487M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),statistics_log=(wait=0),verbose=(recovery_progress),
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:30.999+0000 I STORAGE  [initandlisten] WiredTiger message [1547177610:999897][1:0x7f485a321a40], txn-recover: Main recovery loop: starting at 3/6656 to 4/256
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.084+0000 I STORAGE  [initandlisten] WiredTiger message [1547177611:84054][1:0x7f485a321a40], txn-recover: Recovering log 3 through 4
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.146+0000 I STORAGE  [initandlisten] WiredTiger message [1547177611:146468][1:0x7f485a321a40], txn-recover: Recovering log 4 through 4
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.184+0000 I STORAGE  [initandlisten] WiredTiger message [1547177611:184171][1:0x7f485a321a40], txn-recover: Set global recovery timestamp: 0
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.210+0000 I RECOVERY [initandlisten] WiredTiger recoveryTimestamp. Ts: Timestamp(0, 0)
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.220+0000 I CONTROL  [initandlisten] 
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.220+0000 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.220+0000 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.221+0000 I CONTROL  [initandlisten] 
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.236+0000 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory '/data/db/diagnostic.data'
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.238+0000 I NETWORK  [initandlisten] waiting for connections on port 27017
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.367+0000 I NETWORK  [listener] connection accepted from 172.20.0.3:41674 #1 (1 connection now open)
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.373+0000 I NETWORK  [conn1] end connection 172.20.0.3:41674 (0 connections now open)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m 
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m > server@0.0.0 start /app
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m > NODE_ENV=production node app.js
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m 
+[32mmongo_client_1_514000b92333 |[0m Welcome to mongo-express
+[32mmongo_client_1_514000b92333 |[0m ------------------------
+[32mmongo_client_1_514000b92333 |[0m 
+[32mmongo_client_1_514000b92333 |[0m 
+[32mmongo_client_1_514000b92333 |[0m Mongo Express server listening at http://0.0.0.0:8081
+[32mmongo_client_1_514000b92333 |[0m [31mServer is open to allow connections from anyone (0.0.0.0)[39m
+[32mmongo_client_1_514000b92333 |[0m [31mbasicAuth credentials are "admin:pass", it is recommended you change this in your config.js![39m
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.812+0000 I NETWORK  [listener] connection accepted from 172.20.0.3:41676 #2 (1 connection now open)
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.834+0000 I NETWORK  [conn2] received client metadata from 172.20.0.3:41676 conn2: { driver: { name: "nodejs", version: "2.2.24" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.9.125-linuxkit" }, platform: "Node.js v8.15.0, LE, mongodb-core: 2.1.8" }
+[32mmongo_client_1_514000b92333 |[0m Database connected
+[32mmongo_client_1_514000b92333 |[0m Admin Database connected
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.850+0000 I NETWORK  [listener] connection accepted from 172.20.0.3:41678 #3 (2 connections now open)
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:31.854+0000 I NETWORK  [listener] connection accepted from 172.20.0.3:41680 #4 (3 connections now open)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: Warning: since `sails.config.session.cookie.secure` is not set to `true`, the session
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: cookie will be sent over non-TLS connections (i.e. with insecure http:// requests).
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: To enable secure cookies, set `sails.config.session.cookie.secure` to `true`.
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: 
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: If your app is behind a proxy or load balancer (e.g. on a PaaS like Heroku), you
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: may also need to set `sails.config.http.trustProxy` to `true`.
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: 
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: For more help:
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug:  • https://sailsjs.com/config/session#?the-secure-flag
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug:  • https://sailsjs.com/config/session#?do-i-need-an-ssl-certificate
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug:  • https://sailsjs.com/config/sails-config-http#?properties
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug:  • https://sailsjs.com/support
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: 
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: It looks like your `sails.config.sockets.onlyAllowOrigins` array only includes
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: references to the `localhost` origin.  This is completely valid, but be sure
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: to add any other origins to this list that you'd like to accept socket
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: connections from!
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m debug: 
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: logger hook loaded successfully. (1ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: request hook loaded successfully. (0ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: views hook loaded successfully. (1ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: responses hook loaded successfully. (2ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: helpers hook loaded successfully. (1ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: policies hook loaded successfully. (5ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: services hook loaded successfully. (9ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: security hook loaded successfully. (3ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: i18n hook loaded successfully. (1ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m Warning: connect.session() MemoryStore is not
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m designed for a production environment, as it will leak
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m memory, and will not scale past a single process.
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: session hook loaded successfully. (10ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: http hook loaded successfully. (73ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m: Initializing `apianalytics` hook...  (requests to monitored routes will be logged!)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: apianalytics hook loaded successfully. (0ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: cron hook loaded successfully. (1ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [34mdebug[39m: initializing sails-hook-dev...
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: dev hook loaded successfully. (0ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: sockets hook loaded successfully. (17ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: Loading adapter (`sails-mongo`) from this app's `node_modules/` directory...
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:32.879+0000 I NETWORK  [listener] connection accepted from 172.20.0.4:48294 #5 (4 connections now open)
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:33:32.886+0000 I NETWORK  [conn5] received client metadata from 172.20.0.4:48294 conn5: { driver: { name: "nodejs", version: "2.2.25" }, os: { type: "Linux", name: "linux", architecture: "x64", version: "4.9.125-linuxkit" }, platform: "Node.js v11.6.0, LE, mongodb-core: 2.1.9" }
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: orm hook loaded successfully. (241ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: blueprints hook loaded successfully. (362ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: pubsub hook loaded successfully. (364ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: grunt hook loaded successfully. (2804ms)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: Starting app at /app...
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: Running the setup logic in `sails.config.bootstrap(done)`...
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [34mdebug[39m: Admin profile created
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m:  
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m:                .-..-.
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m:  
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m:    Sails              <|    .-..-.
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m:    v1.1.0              |\
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m:                       /|.\
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m:                      / || \
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m:                    ,'  |'  \
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m:                 .-'.-==|/_--'
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m:                 `--'-------' 
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m:    __---___--___---___--___---___--___
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m:  ____---___--___---___--___---___--___-__
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m:  
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m: Server lifted in `/app`
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m: To shut down Sails, press <CTRL> + C at any time.
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [32minfo[39m: Read more at https://sailsjs.com/support.
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [34mdebug[39m: -------------------------------------------------------
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [34mdebug[39m: :: Fri Jan 11 2019 03:33:35 GMT+0000 (Coordinated Universal Time)
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [34mdebug[39m: Environment : production
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [34mdebug[39m: Port        : 1337
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [34mdebug[39m: -------------------------------------------------------
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: NODE_ENV  : production
+[33mtemplate_api_prod_1_ad13c9af2ca4 |[0m [36mverbose[39m: App lifted successfully.
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:42:30.451+0000 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:42:30.451+0000 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:42:30.451+0000 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:42:30.452+0000 I CONTROL  [signalProcessingThread] Shutting down free monitoring
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:42:30.452+0000 I FTDC     [signalProcessingThread] Shutting down full-time diagnostic data capture
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:42:30.454+0000 I STORAGE  [signalProcessingThread] WiredTigerKVEngine shutting down
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:42:30.475+0000 I NETWORK  [conn2] end connection 172.20.0.3:41676 (3 connections now open)
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:42:30.476+0000 I NETWORK  [conn4] end connection 172.20.0.3:41680 (2 connections now open)
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:42:30.476+0000 I NETWORK  [conn3] end connection 172.20.0.3:41678 (1 connection now open)
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:42:30.527+0000 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:42:30.527+0000 I CONTROL  [signalProcessingThread] now exiting
+[36mmongo_1_a6c6ac3d27d3 |[0m 2019-01-11T03:42:30.527+0000 I CONTROL  [signalProcessingThread] shutting down with code:0
+[36mprod_mongo_1_a6c6ac3d27d3 exited with code 0
+[0m[33mprod_template_api_prod_1_ad13c9af2ca4 exited with code 0
+[0m[32mprod_mongo_client_1_514000b92333 exited with code 143
+[0m
