@@ -87,8 +87,8 @@ class RightSide extends Component {
                                             key={item.title}
                                         >
                                             <List.Item.Meta
-                                                avatar={<img width={146} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
-                                                title={<a style={{ color: 'black', fontSize: '20px' }} href={item.href}>{item.title}</a>}
+                                                avatar={<img width={146} alt="logo" src="https://coinrevolution.com/wp-content/uploads/2018/04/blockchain-red-thunder-lightning-network_0.png" />}
+                                                title={<a style={{ color: 'black', fontSize: '20px' }} href={'/news/' + item.id}>{item.title}</a>}
                                                 description={
                                                     <Row>
                                                         <Col>

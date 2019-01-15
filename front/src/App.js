@@ -7,6 +7,7 @@ import Search from "./pages/search";
 import BottomFooter from "./pages/bottomfooter";
 import School from "./pages/school";
 import News from "./pages/news";
+import OneNews from "./pages/onenews";
 import Activity from "./pages/activity";
 import Contact from "./pages/contact";
 import ContactAD from "./pages/contact/ad";
@@ -25,6 +26,7 @@ class App extends Component {
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/contact/ad" component={ContactAD} />
           <Route exact path="/contact/feedback" component={ContactFeedback} />
+          <Route exact path="/news/:newsId" render={({ match }) => <OneNews params={match.params} />} />
           <Route exact path="/search" component={Search} />
           <BottomFooter />
         </div>

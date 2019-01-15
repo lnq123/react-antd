@@ -3,9 +3,13 @@ import React, { Component } from "react";
 import { Icon } from "antd";
 import "./header.css";
 import { Row, Col } from "antd";
+import ModalLogin from "./modalLogin";
 const p = window.location.pathname;
 var index = 1;
 class TopHeader extends Component {
+  state = {
+    modalLoginOpen: true
+  }
 
   componentWillMount() {
     p === "/news"
@@ -18,9 +22,23 @@ class TopHeader extends Component {
       ? (index = 5)
       : (index = 1);
   }
+
+  onClickLogin = () => {
+    this.setState({
+      modalLoginOpen: true
+    })
+  }
+
+  onCloseLoginModal = () => {
+    this.setState({
+      modalLoginOpen: false
+    })
+  }
+
   render() {
     return (
       <div className="headerWrapper ">
+        <ModalLogin modalLoginOpen={this.state.modalLoginOpen} onCloseLoginModal={this.onCloseLoginModal}/>
         <Row className="HeaderTitleWidth" gutter={10}>
           <Col span={5}>
             <img className="TitleImg" src="/image/6.png" alt="" />
@@ -76,7 +94,7 @@ class TopHeader extends Component {
                 <Icon type="search" style={{ fontSize: 24 }} />
               </span>
             </a>
-            <a className="HeaderLogin" href="/contact">
+            <a className="HeaderLogin" onClick={this.onClickLogin}>
               <span>登录/注册</span>
             </a>
           </Col>

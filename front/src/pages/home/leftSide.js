@@ -89,8 +89,8 @@ class LeftSide extends Component {
                         </Carousel>
                     </Col>
                     <Col span={5} className="mainHomepageImage">
-                        <img className="mainHomepageSmallImage" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="" />
-                        <img className="mainHomepageSmallImage" src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" alt="" />
+                        <img className="mainHomepageSmallImage" src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2018/01/Blockchain-Funds.png" alt="" />
+                        <img className="mainHomepageSmallImage" src="https://www.kinesense-vca.com/wp-content/uploads/2018/03/Blockchain-Icon.png" alt="" />
                     </Col>
                 </Row>
                 <Row className="mainHomepageNews">
@@ -133,15 +133,10 @@ class LeftSide extends Component {
                                 >
                                     <Skeleton avatar title={false} loading={item.loading} active>
                                         <List.Item.Meta
-                                            avatar={<img width={275} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
-                                            title={<a href={item.href}>{item.title}</a>}
+                                            avatar={<img width={275} height={169} alt="logo" src="https://acheterbitcoin.pro/wp-content/uploads/2018/01/quest-ec-que-la-blockchain.jpg" />}
+                                            title={<div className="mainpageTitleNewsBlock"><a className="mainpageTitleNews" href={'/news/' + item.id}>{item.title}</a></div>}
                                             description={
                                                 <Row>
-                                                    <Col>
-                                                        {item.content}
-                                                    </Col>
-                                                    <br />
-                                                    <br />
                                                     <Col>
                                                         <Row>
                                                             <Col span={20}>

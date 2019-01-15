@@ -20,10 +20,6 @@
     /* border: solid red 1px; */
 }
 
-.border2 {
-    border: green 1px solid;
-}
-
 .borderGrey {
     border: 1px solid rgba(229,229,229,1)
 }
@@ -41,7 +37,7 @@
     -moz-border-radius: 5px;
     border-radius: 5px;
     margin-bottom: 25px;
-    border: black 1px solid;
+    /* border: rgb(212, 212, 212) 1px solid; */
     width: 200px;
     height: 138px;
 }
@@ -76,5 +72,15 @@
     padding-right: 10%;
 }
 
+.mainpageTitleNews {
+    font-size: 35px;
+    color: black !important;
+}
+
+.mainpageTitleNewsBlock {
+    /* border: solid 1px red; */
+    padding-top: 10px;
+    height: 140px;
+}
 
 /* 30px */

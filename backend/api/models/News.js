@@ -9,7 +9,8 @@
 module.exports = {
   // schema: true,
   attributes: {
-    title:              { type: 'string', required: true},
+    title:              { type: 'string', required: true },
+    titleImg:           { type: 'string' },
     content:            { type: 'string', required: true },
     views:              { type: 'number', defaultsTo: 0},
   },

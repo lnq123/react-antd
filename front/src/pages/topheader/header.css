@@ -107,3 +107,15 @@
 a:hover {
   color: rgba(255, 255, 255, 1);
 }
+
+.login-form {
+  height: 300px;
+}
+
+.login-form-button {
+  width: 100%;
+}
+
+.margin {
+  margin-bottom: 20px;
+}
