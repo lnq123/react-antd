@@ -207,10 +207,10 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    // onlyAllowOrigins: [
-    //   'http://localhost',
-    //   'http://localhost:3000',
-    // ],
+    onlyAllowOrigins: [
+      'http://localhost',
+      'http://localhost:3000',
+    ],
   },
 
   http: {
