@@ -1,4 +1,8 @@
 
+# Run 
+```Bash
+    1.npm run rebuild-dev && npm start
+```
 
 
 # Run Backend
