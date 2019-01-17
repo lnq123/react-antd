@@ -10,17 +10,8 @@ var bcrypt = require('bcrypt');
 module.exports = {
   // schema: true,
   attributes: {
-    email:              { type: 'string', required: true, unique:true /*isEmail: true*/},
     encryptedPassword:  { type: 'string'},
-    name:               { type: 'string', required: true },
-    firstName:          { type: 'string', required: true },
-    gender:             { type: 'number' },
-    tel:                { type: 'number'},
-    address:            { type: 'string'},
-    zipCode:            { type: 'number'},
-    city:               { type: 'string'},
-    state:              { type: 'string', required: true }, // 1 first connect - 2 Already connected - 0 Disabled
-    avatarUrl:          { type: 'string', defaultsTo: 'default'},
+    phone:                { type: 'string', required: true, unique:true },
     profile: {
       model: 'profile'
     },

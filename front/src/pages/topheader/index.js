@@ -4,11 +4,13 @@ import { Icon } from "antd";
 import "./header.css";
 import { Row, Col } from "antd";
 import ModalLogin from "./modalLogin";
+import { connect } from 'react-redux'
+
 const p = window.location.pathname;
 var index = 1;
 class TopHeader extends Component {
   state = {
-    modalLoginOpen: true
+    modalLoginOpen: false
   }
 
   componentWillMount() {
@@ -36,9 +38,13 @@ class TopHeader extends Component {
   }
 
   render() {
+    console.log(this.props);
+    
     return (
       <div className="headerWrapper ">
-        <ModalLogin modalLoginOpen={this.state.modalLoginOpen} onCloseLoginModal={this.onCloseLoginModal}/>
+        {
+          !this.props.userData.user && <ModalLogin modalLoginOpen={this.state.modalLoginOpen} onCloseLoginModal={this.onCloseLoginModal}/>
+        }
         <Row className="HeaderTitleWidth" gutter={10}>
           <Col span={5}>
             <img className="TitleImg" src="/image/6.png" alt="" />
@@ -95,7 +101,11 @@ class TopHeader extends Component {
               </span>
             </a>
             <a className="HeaderLogin" onClick={this.onClickLogin}>
-              <span>登录/注册</span>
+              <span>
+               {
+                 this.props.userData.user ? 'Hi ' + this.props.userData.user.user.phone : '登录/注册'
+               }
+              </span>
             </a>
           </Col>
         </Row>
@@ -104,4 +114,13 @@ class TopHeader extends Component {
   }
 }
 
-export default TopHeader;
+const mapStateToProps = state => {
+    const { userData } = state
+    return {
+        userData,
+    }
+}
+
+export default connect(
+  mapStateToProps,
+)(TopHeader)

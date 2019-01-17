@@ -1,22 +1,34 @@
 import React, { Component } from "react";
 import { Modal, Button, Icon, Input, Checkbox, Row, Col } from 'antd';
+import { connect } from 'react-redux'
+import { userService } from '../../_services'
+import { userActions } from '../../_actions'
 
 class ModalLogin extends Component {
 
 
     state = {
-        login: false
+        login: true,
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault();
+    handleChange = e => {
+        const { value, name } = e.target
+        this.setState({ [name]: value })
     }
 
-    handleOk = (e) => {
-        console.log(e);
-        this.setState({
-            visible: false,
-        });
+    onLogin = () => {
+        const { loginPhone, loginPassword } = this.state
+        this.props.login(loginPhone, loginPassword)
+    }
+
+    onRegister = async () => {
+        console.log(this.state);
+        
+        const { registerPhone, registerPassword, registerConfirmPassword } = this.state
+        if (registerPassword !== registerConfirmPassword) {
+            return
+        }
+        await userService.create({ phone: registerPhone, password: registerPassword })
     }
 
 
@@ -28,20 +40,19 @@ class ModalLogin extends Component {
             <div>
                 <Modal
                     title="登录/注册"
-                    visible={false}
-                    // visible={modalLoginOpen}
+                    // visible={false}
+                    visible={modalLoginOpen}
                     footer={null}
-                    // onOk={this.handleOk}
                     onCancel={onCloseLoginModal}
                 >
                     {
                         login &&
                         <Row>
                             <Col className="margin">
-                                <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="E-mail" />
+                                <Input onChange={this.handleChange} name="loginPhone" prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Phone number" />
                             </Col>
                             <Col className="margin">
-                                <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+                                <Input onChange={this.handleChange} name="loginPassword" prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
                             </Col>
                             <Col className="margin" span={18}>
                                 <Checkbox>Remember me</Checkbox>
@@ -50,9 +61,9 @@ class ModalLogin extends Component {
                                 <a className="login-form-forgot">Forgot password</a>
                             </Col>
                             <Col className="margin" span={24}>
-                                <Button type="primary" htmlType="submit" className="login-form-button">
+                                <Button onClick={this.onLogin} type="primary" htmlType="submit" className="login-form-button">
                                     Log in
-                            </Button>
+                                </Button>
                             </Col>
                             <Col className="margin">
                                 Or <a onClick={() => { this.setState({ login: false }) }}>register now!</a>
@@ -63,16 +74,16 @@ class ModalLogin extends Component {
                         !login &&
                         <Row>
                             <Col className="margin">
-                                <Input required prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="E-mail" />
+                                <Input name="registerPhone" onChange={this.handleChange} required prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Phone number" />
                             </Col>
                             <Col className="margin">
-                                <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+                                <Input name="registerPassword" onChange={this.handleChange} prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
                             </Col>
                             <Col className="margin">
-                                <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Confirm Password" />
+                                <Input name="registerConfirmPassword" onChange={this.handleChange} prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Confirm Password" />
                             </Col>
                             <Col className="margin" span={24}>
-                                <Button type="primary" htmlType="submit" className="login-form-button">
+                                <Button onClick={this.onRegister} type="primary" htmlType="submit" className="login-form-button">
                                     Register
                                 </Button>
                             </Col>
@@ -87,4 +98,20 @@ class ModalLogin extends Component {
     }
 }
 
-export default ModalLogin;
+// const mapStateToProps = state => {
+//     console.log('STATE', state)
+
+//     const { userData } = state
+//     return {
+//         userData,
+//     }
+// }
+
+const mapDispatchToProps = dispatch => ({
+    login: (phone, password) => dispatch(userActions.login({phone, password})),
+})
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(ModalLogin)

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://47.110.59.114:1337'
+const url = 'http://localhost:1337'
 
 
 export const quickNewsService = {

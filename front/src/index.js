@@ -1,11 +1,16 @@
+// import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { store } from './_helpers'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import './style.js'
+import { Provider } from 'react-redux'
+
+
 function renderRoot () {
-  ReactDOM.render(<App />, document.getElementById('root'))
+  ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'))
 }
 
 renderRoot()

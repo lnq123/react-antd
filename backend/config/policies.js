@@ -27,7 +27,7 @@ module.exports.policies = {
   
   'UserController': {
     '*': false, 
-    'create': ['isAuthorized', 'asPermission'],
+    'create': true,
     'update': ['isAuthorized', 'asPermission', 'userPolicies'],
     'find': ['isAuthorized', 'asPermission'],
     'findOne': ['isAuthorized', 'asPermission', 'userPolicies'],

@@ -13,9 +13,6 @@ module.exports = {
             req.body.password = sails.config.custom.defaultPassword.password;
             req.body.confirmPassword = sails.config.custom.defaultPassword.password;
         }
-        if (req.body.password !== req.body.confirmPassword && sails.config.custom.defaultPassword.asDefaultPassword === false) {
-            return res.status(401).json({ err: 'Password doesn\'t match' });
-        }
         try {
 
             let profile = await Profile.findOne({
