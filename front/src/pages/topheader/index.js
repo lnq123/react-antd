@@ -47,7 +47,7 @@ class TopHeader extends Component {
         <Col span={24}>
           <Row className="headerWrapper">
             <Col span={5} className="test">
-              <img className="TitleImg" src="/image/6.png" alt="" />
+              <img onClick={() => { this.props.history.push('/') }} className="TitleImg" src="/image/6.png" alt="" />
             </Col>
             <Col className="test2" span={18}>
               <Row className="headerText">

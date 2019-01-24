@@ -70,13 +70,16 @@
 
 .mainpageTitleNews {
     font-size: 35px;
+    /* border: red solid 1px; */
     color: black !important;
+    line-height: 40px;
+    /* height: 130px; */
 }
 
 .mainpageTitleNewsBlock {
-    /* border: solid 1px red; */
+    /* border: solid 1px green; */
     padding-top: 10px;
-    height: 140px;
+    height: 155px;
 }
 
 /* 30px */

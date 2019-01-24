@@ -129,13 +129,18 @@ class LeftSide extends Component {
                                 >
                                     <Skeleton avatar title={false} loading={item.loading} active>
                                         <List.Item.Meta
+                                            className="clickable"
+                                            onClick={() => { this.props.history.push('/news/' + item.id) }}
                                             avatar={<img width={275} height={169} alt="logo" src={item.titleImg ? item.titleImg : emptyImg} />}
-                                            title={<div className="mainpageTitleNewsBlock"><span className="mainpageTitleNews clickable" onClick={() => { this.props.history.push('/news/' + item.id) }} >{item.title}</span></div>}
+                                            // title={<div className="mainpageTitleNewsBlock"><p className="mainpageTitleNews" >{item.title}</p></div>}
                                             description={
                                                 <Row>
                                                     <Col>
                                                         <Row>
-                                                            <Col span={20}>
+                                                            <Col className="mainpageTitleNewsBlock" span={24}>
+                                                                <div className="mainpageTitleNews" > {item.title} </div>
+                                                            </Col>
+                                                            <Col span={16}>
                                                                 {item.author.phone.replace(item.author.phone.substring(4, 8), "****")}
                                                                 {/* 7小时前 */}
                                                             </Col>

@@ -23,7 +23,10 @@ module.exports = {
     },
     find: async function (req, res) {
         try {
-            const news = await News.find().populate('author');
+            console.log(req.query);
+            // req.param('email');
+            
+            const news = await News.find(req.query).populate('author');
             return res.status(200).json({ status: 'Success', news });
         } catch (err) {
             sails.log.debug(err);

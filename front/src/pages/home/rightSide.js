@@ -59,7 +59,7 @@ class RightSide extends Component {
                                                 description={
                                                     <Row>
                                                         <Col>
-                                                            昨天
+                                                            {/* 昨天 */}
                                                         </Col>
                                                     </Row>
                                                 }
