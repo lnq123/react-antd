@@ -12,12 +12,16 @@ import Contact from "./pages/contact";
 import ContactAD from "./pages/contact/ad";
 import ContactFeedback from "./pages/contact/feedback";
 import NewArticle from "./pages/newarticle"
+import {isMobile} from 'react-device-detect';
+import { connect } from 'react-redux'
+
 
 class App extends Component {
   render() {
+    const { userData } = this.props
     return (
       <BrowserRouter>
-        <div>
+        <div className={isMobile ? 'mobileZoom' : ''}>
           <Header/>
           <Route exact path="/" component={Home} />
           <Route exact path="/school" component={School} />
@@ -25,7 +29,9 @@ class App extends Component {
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/contact/ad" component={ContactAD} />
           <Route exact path="/contact/feedback" component={ContactFeedback} />
-          <Route exact path="/news/:newsId" render={({ match }) => <OneNews params={match.params} />} />
+          {
+            userData && <Route exact path="/news/:newsId" render={({ match }) => <OneNews params={match.params} />} />
+          }
           <Route exact path="/search" component={Search} />
           <Route exact path="/admin/newarticle" component={NewArticle} />
           <BottomFooter />
@@ -35,4 +41,13 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  const { userData } = state
+  return {
+    userData,
+  }
+}
+
+export default connect(
+  mapStateToProps,
+)(App)

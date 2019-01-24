@@ -11,7 +11,6 @@ class Home extends Component {
     return (
       <div className="mainHomepage">
         <Row>
-
           <LeftSide history={this.props.history} />
           <RightSide history={this.props.history} />
         </Row>

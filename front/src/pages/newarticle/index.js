@@ -86,8 +86,8 @@ class NewArticle extends Component {
 
     onChangeTitle = (event) => {
         const { value } = event.target
-        if (value.length >= 30) {
-            message.error('Title too long!');
+        if (value.length > 30) {
+            return message.error('Title too long!');
         }
         this.setState({ title: value })
     }
@@ -122,7 +122,6 @@ class NewArticle extends Component {
                 title: ''
             })
         }
-        console.log(ret);
     }
 
     render() {
@@ -133,7 +132,6 @@ class NewArticle extends Component {
                 <div className="ant-upload-text">Upload</div>
             </div>
         );
-        console.log(title);
 
         return (
             <div className="mainHomepage adminCreateNews">
@@ -150,7 +148,7 @@ class NewArticle extends Component {
                         {title.length}/30
                     </Col>
                     <Col span={24} style={{ marginBottom: '20px', marginTop: '10px' }}>
-                        <Input style={{ height: '45px' }} onChange={this.onChangeTitle} placeholder="Title" />
+                        <Input style={{ height: '45px' }} value={title} onChange={this.onChangeTitle} placeholder="Title" />
                     </Col>
                     <Col span={7}>
                         <div style={{ marginBottom: '10px' }}>
