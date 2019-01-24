@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Slide from './slides'
 import Tabs from './tabs'
 import {Row, Col} from 'antd'
-import faker from 'faker'
 
 class Activity extends Component {
   render() {

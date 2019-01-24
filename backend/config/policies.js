@@ -58,7 +58,12 @@ module.exports.policies = {
   },
 
   'News': {
-    '*': true
+    '*': false, 
+    'create': ['isAuthorized', 'asPermission'],
+    'update': ['isAuthorized', 'asPermission'],
+    'find': true,
+    'findOne': true,
+    'destroy': ['isAuthorized', 'asPermission']
   },
 
   'QuickNews': {

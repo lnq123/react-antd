@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Row, Col, Input, Button } from "antd";
 const imgtitle = "/image/6.png";
 const img_background = "/image/contact/feedback/bg.png";

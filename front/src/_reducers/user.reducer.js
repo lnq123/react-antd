@@ -1,7 +1,8 @@
 import { userConstants } from '../_constants'
 
+// localStorage.removeItem('user')
 const user = JSON.parse(localStorage.getItem('user'))
-const initialState = user ? { loggedIn: true, user } : null
+const initialState = user ? user : null
 
 export function userData(state = initialState, action) {
   switch (action.type) {

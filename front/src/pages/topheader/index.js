@@ -5,30 +5,31 @@ import "./header.css";
 import { Row, Col } from "antd";
 import ModalLogin from "./modalLogin";
 import { connect } from 'react-redux'
+import { withRouter } from "react-router";
 
-const p = window.location.pathname;
-var index = 1;
+let path = window.location.pathname;
 class TopHeader extends Component {
   state = {
     modalLoginOpen: false
   }
 
-  componentWillMount() {
-    p === "/news"
-      ? (index = 2)
-      : (p.indexOf("school")!==-1)
-      ? (index = 3)
-      : (p.indexOf("activity")!==-1)
-      ? (index = 4)
-      : (p.indexOf("contact")!==-1)
-      ? (index = 5)
-      : (index = 1);
-  }
-
   onClickLogin = () => {
+    if (this.props.userData) {
+      return
+    }
     this.setState({
       modalLoginOpen: true
     })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    path = window.location.pathname;
+    console.log(nextProps);
+    if (nextProps.userData) {
+      this.setState({
+        modalLoginOpen: false
+      })
+    }
   }
 
   onCloseLoginModal = () => {
@@ -38,75 +39,64 @@ class TopHeader extends Component {
   }
 
   render() {
-    console.log(this.props);
-    
     return (
       <div className="headerWrapper ">
         {
-          !this.props.userData.user && <ModalLogin modalLoginOpen={this.state.modalLoginOpen} onCloseLoginModal={this.onCloseLoginModal}/>
+          <ModalLogin modalLoginOpen={this.state.modalLoginOpen} onCloseLoginModal={this.onCloseLoginModal} />
         }
         <Row className="HeaderTitleWidth" gutter={10}>
           <Col span={5}>
             <img className="TitleImg" src="/image/6.png" alt="" />
           </Col>
           <Col span={19}>
-            <a
-              className={index === 1 ? "HeaderTitleA" : "HeaderTitle"}
-              href="/"
+            <span
+              className={path === '/' ? "HeaderTitleA clickable" : "HeaderTitle clickable"}
+              onClick={() => { this.props.history.push('/') }}
             >
               <span style={{ position: "relative" }}>
                 首页
-                <span className={index === 1 ? "index1" : ""} />
+                <span className={path === '/' ? "index1" : ""} />
               </span>
-            </a>
-            <a
-              className={index === 2 ? "HeaderTitleA" : "HeaderTitle"}
-              href="/news"
-            >
-              <span style={{ position: "relative" }}>
-                快讯
-                <span className={index === 2 ? "index2" : ""} />
-              </span>
-            </a>
-            <a
-              className={index === 3 ? "HeaderTitleA" : "HeaderTitle"}
-              href="/school"
+            </span>
+            <span
+              className={path === '/school' ? "HeaderTitleA clickable" : "HeaderTitle clickable"}
+              onClick={() => { this.props.history.push('/school') }}
             >
               <span style={{ position: "relative" }}>
                 阅链学校
-                <span className={index === 3 ? "index3" : ""} />
+                <span className={path === '/school' ? "index3" : ""} />
               </span>
-            </a>
-            <a
-              className={index === 4 ? "HeaderTitleA" : "HeaderTitle"}
-              href="/activity"
+            </span>
+            <span
+              className={path === '/activity' ? "HeaderTitleA clickable" : "HeaderTitle clickable"}
+              onClick={() => { this.props.history.push('/activity') }}
             >
               <span style={{ position: "relative" }}>
                 活动
-                <span className={index === 4 ? "index4" : ""} />
+                <span className={path === '/activity' ? "index4" : ""} />
               </span>
-            </a>
-            <a
-              className={index === 5 ? "HeaderTitleA" : "HeaderTitle"}
-              href="/contact"
+            </span>
+            <span
+              className={path === '/contact' ? "HeaderTitleA clickable" : "HeaderTitle clickable"}
+              onClick={() => { this.props.history.push('/contact') }}
             >
               <span style={{ position: "relative" }}>
                 联系我们
-                <span className={index === 5 ? "index5" : ""} />
+                <span className={path === '/contact' ? "index5" : ""} />
               </span>
-            </a>
-            <a className="HeaderSearchIcon" href="/contact">
+            </span>
+            <span className="HeaderSearchIcon">
               <span>
                 <Icon type="search" style={{ fontSize: 24 }} />
               </span>
-            </a>
-            <a className="HeaderLogin" onClick={this.onClickLogin}>
+            </span>
+            <span className="HeaderLogin clickable" onClick={this.onClickLogin}>
               <span>
-               {
-                 this.props.userData.user ? 'Hi ' + this.props.userData.user.user.phone : '登录/注册'
-               }
+                {
+                  this.props.userData ? '你好 ' + this.props.userData.phone : '登录/注册'
+                }
               </span>
-            </a>
+            </span>
           </Col>
         </Row>
       </div>
@@ -115,12 +105,12 @@ class TopHeader extends Component {
 }
 
 const mapStateToProps = state => {
-    const { userData } = state
-    return {
-        userData,
-    }
+  const { userData } = state
+  return {
+    userData,
+  }
 }
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
-)(TopHeader)
+)(TopHeader))

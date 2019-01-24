@@ -5,7 +5,7 @@ import { Card, Pagination } from "antd";
 const { Meta } = Card;
 const { CheckableTag } = Tag;
 
-class MyTag extends React.Component {
+class MyTag extends Component {
   state = { checked: false };
 
   handleChange = checked => {
@@ -89,9 +89,9 @@ const title2 = (
   </Row>)
   function itemRender(current, type, originalElement) {
     if (type === 'prev') {
-      return <a>上一页</a>;
+      return <span>上一页</span>;
     } if (type === 'next') {
-      return <a>下一页</a>;
+      return <span>下一页</span>;
     }
     return originalElement;
   }

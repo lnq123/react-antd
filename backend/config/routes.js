@@ -27,6 +27,8 @@ module.exports.routes = {
   
   'POST /auth/getToken': 'AuthController.index',
   'POST /user/forgot': 'UserController.forgot',
+  'POST /news/like/:id': 'NewsController.like',
+  'POST /news/dislike/:id': 'NewsController.dislike',
   
   /***************************************************************************
   *                                                                          *

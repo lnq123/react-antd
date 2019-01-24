@@ -30,8 +30,8 @@ class LeftSide extends Component {
 
         this.setState({
             initLoading: false,
-            data: retNews,
-            list: retNews,
+            data: retNews.news,
+            list: retNews.news,
         });
     }
 
@@ -45,7 +45,7 @@ class LeftSide extends Component {
             const page = self.state.data.length / count
             let retNews = await newsService.getHomepage(10, page)
 
-            const data = self.state.data.concat(retNews);
+            const data = self.state.data.concat(retNews.news);
             self.setState({
                 data,
                 list: data,
@@ -67,7 +67,7 @@ class LeftSide extends Component {
 
     render() {
         const { initLoading, loading, list } = this.state;
-
+        const emptyImg = "https://acheterbitcoin.pro/wp-content/uploads/2018/01/quest-ec-que-la-blockchain.jpg"
         const loadMore = !initLoading && !loading ? (
             <div style={{
                 textAlign: 'center', marginTop: 12, height: 32, lineHeight: '32px'
@@ -80,17 +80,13 @@ class LeftSide extends Component {
         return (
             <Col span={16}>
                 <Row>
-                    <Col span={16} className="homepageMainCarousel">
+                    <Col span={21} className="homepageMainCarousel">
                         <Carousel autoplay>
                             <div><h3>1</h3></div>
                             <div><h3>2</h3></div>
                             <div><h3>3</h3></div>
                             <div><h3>4</h3></div>
                         </Carousel>
-                    </Col>
-                    <Col span={5} className="mainHomepageImage">
-                        <img className="mainHomepageSmallImage" src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2018/01/Blockchain-Funds.png" alt="" />
-                        <img className="mainHomepageSmallImage" src="https://www.kinesense-vca.com/wp-content/uploads/2018/03/Blockchain-Icon.png" alt="" />
                     </Col>
                 </Row>
                 <Row className="mainHomepageNews">
@@ -133,14 +129,15 @@ class LeftSide extends Component {
                                 >
                                     <Skeleton avatar title={false} loading={item.loading} active>
                                         <List.Item.Meta
-                                            avatar={<img width={275} height={169} alt="logo" src="https://acheterbitcoin.pro/wp-content/uploads/2018/01/quest-ec-que-la-blockchain.jpg" />}
-                                            title={<div className="mainpageTitleNewsBlock"><a className="mainpageTitleNews" href={'/news/' + item.id}>{item.title}</a></div>}
+                                            avatar={<img width={275} height={169} alt="logo" src={item.titleImg ? item.titleImg : emptyImg} />}
+                                            title={<div className="mainpageTitleNewsBlock"><span className="mainpageTitleNews clickable" onClick={() => { this.props.history.push('/news/' + item.id) }} >{item.title}</span></div>}
                                             description={
                                                 <Row>
                                                     <Col>
                                                         <Row>
                                                             <Col span={20}>
-                                                                liuliuliu 7小时前
+                                                                {item.author.phone.replace(item.author.phone.substring(4, 8), "****")}
+                                                                {/* 7小时前 */}
                                                             </Col>
                                                             <Col span={4}>
                                                                 <IconText type="eye" text={item.views} />

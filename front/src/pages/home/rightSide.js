@@ -1,74 +1,41 @@
 import React, { Component } from 'react'
-import { List, Icon, Carousel, Row, Col, Timeline } from 'antd';
+import { List, Icon, Carousel, Row, Col } from 'antd';
 import './style.css'
-import { quickNewsService, newsService } from '../../_services'
+import { newsService } from '../../_services'
 
 class RightSide extends Component {
 
     state = {
-        quickNewsList: [],
         hotNewsList: []
     }
 
     async componentDidMount() {
         
-        let retQuickNews = await quickNewsService.get()
         let retNews = await newsService.getHot()
 
-        if (!retQuickNews) {
-            retQuickNews = []
-        }
         if (!retNews) {
             retNews = []
         }
-        retQuickNews.pop()
         this.setState({
-            quickNewsList: retQuickNews,
-            hotNewsList: retNews
+            hotNewsList: retNews.news
         })
 
     }
 
     render() {
-        const { quickNewsList, hotNewsList } = this.state
+        const { hotNewsList } = this.state
+        const emptyImg = "https://acheterbitcoin.pro/wp-content/uploads/2018/01/quest-ec-que-la-blockchain.jpg"
         return (
             <Col span={8} className="">
-                <Row style={{ marginBottom: '25px' }}>
+                {/* <Row style={{ marginBottom: '25px' }}>
                     <Col span={18} style={{ fontSize: '28px', color: 'black' }}>
                         实时快讯
                     </Col>
                     <Col span={6} style={{ color: '#999999', fontSize: '20px', marginTop: '8px' }}>
                         更多 <Icon type="right" />
                     </Col>
-                </Row>
+                </Row> */}
                 <Row>
-                    <Col style={{ marginBottom: '25px' }}>
-                        <Timeline>
-                            {
-                                quickNewsList && quickNewsList.length > 0 &&
-                                quickNewsList.map((item, index) => (
-                                    <Timeline.Item color="#EBC44D">
-                                        <Row>
-                                            <Col span={24} style={{ fontSize: '20px', color: '#666666' }}>
-                                                {item.title}
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col span={10} style={{ fontSize: '18px', color: '#999999' }}>
-                                                1小时前
-                                            </Col>
-                                            <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
-                                                利好 7 <Icon style={{ fontSize: '16px', color: 'red' }} type="rise" />
-                                            </Col>
-                                            <Col span={7} style={{ fontSize: '18px', color: '#999999' }}>
-                                                利空 3 <Icon style={{ fontSize: '16px', color: 'green' }} type="fall" />
-                                            </Col>
-                                        </Row>
-                                    </Timeline.Item>
-                                ))
-                            }
-                        </Timeline>
-                    </Col>
                     <Col style={{ marginBottom: '45px' }}>
                         <Row>
                             <Col span={18} style={{ fontSize: '28px', color: 'black' }}>
@@ -87,8 +54,8 @@ class RightSide extends Component {
                                             key={item.title}
                                         >
                                             <List.Item.Meta
-                                                avatar={<img width={146} alt="logo" src="https://coinrevolution.com/wp-content/uploads/2018/04/blockchain-red-thunder-lightning-network_0.png" />}
-                                                title={<a style={{ color: 'black', fontSize: '20px' }} href={'/news/' + item.id}>{item.title}</a>}
+                                                avatar={<img width={146} height={86} alt="logo" src={item.titleImg ? item.titleImg : emptyImg} />}
+                                                title={<span style={{ color: 'black', fontSize: '20px' }} onClick={()=>{ this.props.history.push('/news/' + item.id)} } >{item.title}</span>}
                                                 description={
                                                     <Row>
                                                         <Col>

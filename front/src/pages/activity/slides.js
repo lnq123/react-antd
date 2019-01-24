@@ -1,6 +1,5 @@
 import React from "react";
 // import Carousel from "@brainhubeu/react-carousel";
-import faker from "faker";
 import { Carousel } from "antd";
 const settings = {
   className: "center",

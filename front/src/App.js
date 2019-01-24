@@ -6,12 +6,12 @@ import Home from "./pages/home";
 import Search from "./pages/search";
 import BottomFooter from "./pages/bottomfooter";
 import School from "./pages/school";
-import News from "./pages/news";
 import OneNews from "./pages/onenews";
 import Activity from "./pages/activity";
 import Contact from "./pages/contact";
 import ContactAD from "./pages/contact/ad";
 import ContactFeedback from "./pages/contact/feedback";
+import NewArticle from "./pages/newarticle"
 
 class App extends Component {
   render() {
@@ -20,7 +20,6 @@ class App extends Component {
         <div>
           <Header/>
           <Route exact path="/" component={Home} />
-          <Route exact path="/news" component={News} />
           <Route exact path="/school" component={School} />
           <Route exact path="/activity" component={Activity} />
           <Route exact path="/contact" component={Contact} />
@@ -28,6 +27,7 @@ class App extends Component {
           <Route exact path="/contact/feedback" component={ContactFeedback} />
           <Route exact path="/news/:newsId" render={({ match }) => <OneNews params={match.params} />} />
           <Route exact path="/search" component={Search} />
+          <Route exact path="/admin/newarticle" component={NewArticle} />
           <BottomFooter />
         </div>
       </BrowserRouter>

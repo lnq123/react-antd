@@ -6,11 +6,14 @@ import LeftSide from './leftSide.js'
 
 class Home extends Component {
   render() {
+    console.log('PROPS', this.props);
+
     return (
       <div className="mainHomepage">
         <Row>
-          <LeftSide />
-          <RightSide />
+
+          <LeftSide history={this.props.history} />
+          <RightSide history={this.props.history} />
         </Row>
       </div>
     )

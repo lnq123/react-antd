@@ -47,14 +47,9 @@ module.exports.bootstrap = async function (done) {
 
   //******** CREATE USER ADMIN ********//
   try {
-    await User.findOrCreate({ email: '1' }, {
-      email: '1',
+    await User.findOrCreate({ phone: '12345678910' }, {
+      phone: '12345678910',
       password: '@@@@',
-      name: 'test',
-      firstName: 'Admin',
-      gender: '1',
-      state: '2',
-      avatarUrl: '',
       profile: createdAdmin.id,
     });
   } catch (err) {
@@ -74,6 +69,8 @@ module.exports.bootstrap = async function (done) {
     await Routes.findOrCreate({ url: '/profile/:id', profile: createdAdmin.id }, { name: 'PROFILE ID', url: '/profile/:id', boGet: 'ALLOW ALL', boPost: 'ALLOW ALL', boDelete: 'ALLOW ALL', boPatch: 'ALLOW ALL', isWeb: false, isDisabled: false, profile: createdAdmin.id });
     await Routes.findOrCreate({ url: '/routes', profile: createdAdmin.id }, { name: 'ROUTES', url: '/routes', boGet: 'ALLOW ALL', boPost: 'ALLOW ALL', boDelete: 'ALLOW ALL', boPatch: 'ALLOW ALL', isWeb: false, isDisabled: false, profile: createdAdmin.id });
     await Routes.findOrCreate({ url: '/routes/:id', profile: createdAdmin.id }, { name: 'ROUTES ID', url: '/routes/:id', boGet: 'ALLOW ALL', boPost: 'ALLOW ALL', boDelete: 'ALLOW ALL', boPatch: 'ALLOW ALL', isWeb: false, isDisabled: false, profile: createdAdmin.id });
+    await Routes.findOrCreate({ url: '/news', profile: createdAdmin.id }, { name: 'NEWS', url: '/news', boGet: 'ALLOW ALL', boPost: 'ALLOW ALL', boDelete: 'ALLOW ALL', boPatch: 'ALLOW ALL', isWeb: false, isDisabled: false, profile: createdAdmin.id });
+    await Routes.findOrCreate({ url: '/news/:id', profile: createdAdmin.id }, { name: 'NEWS ID', url: '/news/:id', boGet: 'ALLOW ALL', boPost: 'ALLOW ALL', boDelete: 'ALLOW ALL', boPatch: 'ALLOW ALL', isWeb: false, isDisabled: false, profile: createdAdmin.id });
   } catch (err) {
     sails.log.debug('Err creating routes', err);
   }
@@ -87,6 +84,8 @@ module.exports.bootstrap = async function (done) {
     await Routes.findOrCreate({ url: '/profile/:id', profile: createdUser.id }, { name: 'PROFILE ID', url: '/profile/:id', boGet: 'DENY ALL', boPost: 'DENY ALL', boDelete: 'DENY ALL', boPatch: 'DENY ALL', isWeb: false, isDisabled: false, profile: createdUser.id });
     await Routes.findOrCreate({ url: '/routes', profile: createdUser.id }, { name: 'ROUTES', url: '/routes', boGet: 'DENY ALL', boPost: 'DENY ALL', boDelete: 'DENY ALL', boPatch: 'DENY ALL', isWeb: false, isDisabled: false, profile: createdUser.id });
     await Routes.findOrCreate({ url: '/routes/:id', profile: createdUser.id }, { name: 'ROUTES ID', url: '/routes/:id', boGet: 'DENY ALL', boPost: 'DENY ALL', boDelete: 'DENY ALL', boPatch: 'DENY ALL', isWeb: false, isDisabled: false, profile: createdUser.id });
+    await Routes.findOrCreate({ url: '/news', profile: createdUser.id }, { name: 'NEWS', url: '/news', boGet: 'ALLOW ALL', boPost: 'ALLOW ALL', boDelete: 'DENY ALL', boPatch: 'DENY ALL', isWeb: false, isDisabled: false, profile: createdUser.id });
+    await Routes.findOrCreate({ url: '/news/:id', profile: createdUser.id }, { name: 'NEWS ID', url: '/news/:id', boGet: 'ALLOW ALL', boPost: 'DENY ALL', boDelete: 'DENY ALL', boPatch: 'ALLOW ALL', isWeb: false, isDisabled: false, profile: createdUser.id });
   } catch (err) {
     sails.log.debug('Err creating routes', err);
   }

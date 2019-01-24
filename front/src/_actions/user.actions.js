@@ -11,8 +11,10 @@ function login(userData) {
     try {
       const userRet = await userService.login(userData)
       if (userRet.data) {
-        localStorage.setItem('user', JSON.stringify(userRet.data))
-        dispatch(success(userRet.data))
+        console.log('LOGIN BACK', userRet.data);
+        
+        localStorage.setItem('user', JSON.stringify({...userRet.data.user, token: userRet.data.token}))
+        dispatch(success({...userRet.data.user, token: userRet.data.token}))
       } else {
         dispatch(failure(userRet))
       }

@@ -37,7 +37,7 @@ module.exports = function (req, res, next) {
             { err: 'Invalid Token!' }
         );
         req.token = token; // This is the decrypted token or the payload you provided
-        req.user = await User.find(token.id);
+        // req.user = await User.find(token.id);
         return next();
     });
 };

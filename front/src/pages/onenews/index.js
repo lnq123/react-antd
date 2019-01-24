@@ -1,28 +1,8 @@
 import React, { Component } from 'react'
-import { Icon, Carousel, Row, Col, Timeline, Spin } from 'antd'
+import { Icon, Carousel, Row, Col } from 'antd'
 import './style.css'
 import { newsService } from '../../_services'
-var moment = require('moment');
-
-
-const imgBackground = "/image/school_backkground.png"
-
-const loadingSpinner = <Icon type="loading" style={{ fontSize: 80 }} spin />
-
-const IconText = ({ type, text }) => (
-  <span>
-    <Icon type={type} style={{ marginRight: 8 }} />
-    {text}
-  </span>
-);
-
-const listData2 = [];
-for (let i = 0; i < 5; i++) {
-  listData2.push({
-    title: `首枚 Block III GPS 衛星順利升空`,
-    user: '昨天'
-  });
-}
+import { connect } from 'react-redux'
 
 class OneNews extends Component {
 
@@ -31,9 +11,7 @@ class OneNews extends Component {
   }
 
   async componentDidMount() {
-    console.log('HELLO');
-    
-    const { newsId } = this.props.params    
+    const { newsId } = this.props.params
     const ret = await newsService.getOne(newsId)
     if (ret) {
       this.setState({
@@ -42,22 +20,41 @@ class OneNews extends Component {
     }
   }
 
+  onLike = async () => {
+    const { newsId } = this.props.params
+    const ret = await newsService.like(newsId)
+    console.log(ret);
+    
+  }
+
+  onDislike = async () => {
+    const { newsId } = this.props.params
+    const ret = await newsService.dislike(newsId)
+    console.log(ret);
+    
+  }
+
+
   render() {
     const { news } = this.state
     console.log('NEWS', news);
-    
+
     return (
       <div className="newsPage">
         <Row style={{ marginTop: '55px', marginLeft: '35px' }}>
           <Col span={16}>
-           {
-             
-           }
-            {
-              news && <div className="oneArticlePageMainArticle" dangerouslySetInnerHTML={{ __html: news.content }} />
-            } 
-          </Col>
+            <Row>
+              <Col>
+                {
+                  news && <div className="oneArticlePageMainArticle" dangerouslySetInnerHTML={{ __html: news.content }} />
+                }
+              </Col>
+              <Col  span={24} style={{ marginTop: '25px', marginBottom: '25px' }}>
+                <Icon onClick={this.onLike} style={{ fontSize: '20px', color: '#08c', marginLeft: '20px' }} type="like" /><Icon onClick={this.onDislike} style={{ fontSize: '20px', color: '#08c', marginLeft: '20px' }} type="dislike" />
+              </Col>
 
+            </Row>
+          </Col>
           <Col span={8}>
             <Row>
               <Col style={{ marginBottom: '55px' }}>
@@ -216,4 +213,13 @@ class OneNews extends Component {
   }
 }
 
-export default OneNews;
+const mapStateToProps = state => {
+  const { userData } = state
+  return {
+    userData,
+  }
+}
+
+export default connect(
+  mapStateToProps,
+)(OneNews)

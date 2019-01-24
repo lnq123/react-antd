@@ -10,10 +10,14 @@ var bcrypt = require('bcrypt');
 module.exports = {
   // schema: true,
   attributes: {
-    encryptedPassword:  { type: 'string'},
+    encryptedPassword:    { type: 'string'},
     phone:                { type: 'string', required: true, unique:true },
     profile: {
       model: 'profile'
+    },
+    articles: {
+      collection: 'news',
+      via: 'author'
     },
   },
 
