@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { List, Icon, Carousel, Row, Col, Menu, Skeleton, Button } from 'antd';
-import './style.css'
+import { List, Icon, Row, Col, Menu, Skeleton, Button } from 'antd';
 import { newsService } from '../../_services'
+import './style.css'
 
 const count = 10;
 const IconText = ({ type, text }) => (
@@ -11,7 +11,8 @@ const IconText = ({ type, text }) => (
     </span>
 );
 
-class LeftSide extends Component {
+class ListArticles extends Component {
+
 
     state = {
         current: '头条',
@@ -44,7 +45,7 @@ class LeftSide extends Component {
         setTimeout(async function () {
             const page = self.state.data.length / count
             let retNews = await newsService.getHomepage(10, page)
-
+            
             const data = self.state.data.concat(retNews.news);
             self.setState({
                 data,
@@ -59,12 +60,6 @@ class LeftSide extends Component {
         }, 500);
     }
 
-    handleClick = (e) => {
-        this.setState({
-            current: e.key,
-        });
-    }
-
     render() {
         const { initLoading, loading, list } = this.state;
         const emptyImg = "https://acheterbitcoin.pro/wp-content/uploads/2018/01/quest-ec-que-la-blockchain.jpg"
@@ -76,47 +71,14 @@ class LeftSide extends Component {
                 <Button onClick={this.onLoadMore}><Icon type="down" />查看更多</Button>
             </div>
         ) : null;
-
         return (
-            <Col span={16}>
-                <Row>
-                    <Col span={21} className="homepageMainCarousel">
-                        <Carousel autoplay>
-                            <div><h3>1</h3></div>
-                            <div><h3>2</h3></div>
-                            <div><h3>3</h3></div>
-                            <div><h3>4</h3></div>
-                        </Carousel>
+            <div className="adminCreateNewsList">
+                <Row >
+                    <Col span={6}>
+                    
                     </Col>
-                </Row>
-                <Row className="mainHomepageNews">
-                    <Col span={24}>
-                        <Menu
-                            onClick={this.handleClick}
-                            selectedKeys={[this.state.current]}
-                            mode="horizontal"
-                        >
-                            <Menu.Item key="头条">
-                                头条
-                            </Menu.Item>
-                            <Menu.Item key="新闻">
-                                新闻
-                            </Menu.Item>
-                            <Menu.Item key="政策">
-                                政策
-                            </Menu.Item>
-                            <Menu.Item key="人物">
-                                人物
-                            </Menu.Item>
-                            <Menu.Item key="行情">
-                                行情
-                            </Menu.Item>
-                            <Menu.Item key="技术">
-                                技术
-                            </Menu.Item>
-                        </Menu>
-                    </Col>
-                    <Col span={24} className="mainHomepageNewsList">
+                    <Col span={12} className="adminCreateNewsListBlock">
+                        <Button type="primary" icon="file-add" size="large">New article</Button>
                         <List
                             itemLayout="vertical"
                             size="large"
@@ -126,19 +88,20 @@ class LeftSide extends Component {
                             renderItem={item => (
                                 <List.Item
                                     key={item.title}
+                                    className="adminCreateNewsListBlockitem"
                                 >
                                     <Skeleton avatar title={false} loading={item.loading} active>
                                         <List.Item.Meta
                                             className="clickable"
-                                            onClick={() => { this.props.history.push('/news/' + item.id) }}
-                                            avatar={<img width={275} height={169} alt="logo" src={item.titleImg ? item.titleImg : emptyImg} />}
+                                            onClick={() => { this.props.history.push('/news/newarticle/' + item.id) }}
+                                            avatar={<img width={137} height={84} alt="logo" src={item.titleImg ? item.titleImg : emptyImg} />}
                                             // title={<div className="mainpageTitleNewsBlock"><p className="mainpageTitleNews" >{item.title}</p></div>}
                                             description={
                                                 <Row>
                                                     <Col>
                                                         <Row>
-                                                            <Col className="mainpageTitleNewsBlock" span={24}>
-                                                                <div className="mainpageTitleNews" > {item.title} </div>
+                                                            <Col className="blockTitleNewArticle" span={24}>
+                                                                <div className="blockTitleNewArticleText" > {item.title} </div>
                                                             </Col>
                                                             <Col span={16}>
                                                                 {item && item.author && item.author.phone.replace(item.author.phone.substring(4, 8), "****")}
@@ -158,10 +121,9 @@ class LeftSide extends Component {
                         />
                     </Col>
                 </Row>
-            </Col>
-
+            </div>
         )
     }
 }
 
-export default LeftSide
+export default ListArticles;

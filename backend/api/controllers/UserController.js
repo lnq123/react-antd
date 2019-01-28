@@ -20,11 +20,14 @@ module.exports = {
             });
             req.body.profile = profile.id
 
+            let tmp = await User.findOne({phone: req.param('phone')})
+            if (tmp) {
+                return res.status(404).json({ code:'EXISTERR', err: 'User already exist' });
+            }
             let createdUser = await User.create(req.body).fetch();
-            return res.status(201).json({ user: createdUser });
-
+            return res.status(201).json({ user: createdUser }); 
         } catch (err) {
-            return res.status(404).json({ err: err });
+            return res.status(404).json({ code:'UERR', err: err });
         }
     },
     update: async function (req, res) {

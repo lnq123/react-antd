@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { Row, Col, Button, Upload, Icon, message, Cascader, Input } from 'antd';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { Editor } from 'react-draft-wysiwyg';
-import { EditorState, convertToRaw } from 'draft-js';
+import { EditorState, convertToRaw, ContentState } from 'draft-js';
 import { newsService } from '../../_services'
 import draftToHtml from 'draftjs-to-html';
 import './style.css'
-// import htmlToDraft from 'html-to-draftjs';
+import htmlToDraft from 'html-to-draftjs';
 
 const categories = [{
     value: '新闻',
@@ -25,7 +25,6 @@ const categories = [{
     label: '技 术',
 }];
 
-
 class NewArticle extends Component {
     state = {
         editorState: EditorState.createEmpty(),
@@ -33,7 +32,28 @@ class NewArticle extends Component {
         homeImg: null,
         tmpImg: null,
         cat: null,
-        title: ''
+        title: '',
+        update: false
+    }
+
+    async componentDidMount() {
+        // console.log(this.props.params);
+        const { params }= this.props
+        let newsId = 0
+        if (params) {
+            newsId = params.newsId
+            const ret = await newsService.getOne(newsId)
+            console.log(ret.news);
+            const contentBlock = htmlToDraft(ret.news.content);
+            const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
+            const editorState = EditorState.createWithContent(contentState);
+            this.setState({
+                homeImg: ret.news.titleImg,
+                title: ret.news.title,
+                editorState: editorState,
+                update: true
+            })
+        }        
     }
 
     handleChangeHomePicture = (info) => {

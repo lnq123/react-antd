@@ -16,7 +16,7 @@ class TopHeader extends Component {
 
   onClickLogin = () => {
     if (this.props.userData) {
-      this.props.history.push('/admin/newarticle')
+      this.props.history.push('/admin/listarticles')
     }
     this.setState({
       modalLoginOpen: true,

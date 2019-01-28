@@ -12,6 +12,7 @@ import Contact from "./pages/contact";
 import ContactAD from "./pages/contact/ad";
 import ContactFeedback from "./pages/contact/feedback";
 import NewArticle from "./pages/newarticle"
+import ListArticles from "./pages/listarticles"
 import {isMobile} from 'react-device-detect';
 import { connect } from 'react-redux'
 
@@ -34,6 +35,8 @@ class App extends Component {
           }
           <Route exact path="/search" component={Search} />
           <Route exact path="/admin/newarticle" component={NewArticle} />
+          <Route exact path="/news/newarticle/:newsId" render={({ match }) => <NewArticle params={match.params} />} />
+          <Route exact path="/admin/listarticles" component={ListArticles} />
           <BottomFooter />
         </div>
       </BrowserRouter>

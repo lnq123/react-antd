@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { Modal, Button, Icon, Input, Checkbox, Row, Col } from 'antd';
+import { Modal, Button, Icon, Input, Checkbox, Row, Col, message } from 'antd';
 import { connect } from 'react-redux'
 import { userService } from '../../_services'
 import { userActions } from '../../_actions'
 
 class ModalLogin extends Component {
-
 
     state = {
         login: true,
@@ -22,13 +21,20 @@ class ModalLogin extends Component {
     }
 
     onRegister = async () => {
-        console.log(this.state);
-        
         const { registerPhone, registerPassword, registerConfirmPassword } = this.state
         if (registerPassword !== registerConfirmPassword) {
+            message.error('Oups... Password is not the same!');
             return
         }
-        await userService.create({ phone: registerPhone, password: registerPassword })
+        let ret = await userService.create({ phone: registerPhone, password: registerPassword })
+        if (ret) {
+            message.success('Account created!');
+            this.setState({
+                login: true
+            })
+        } else {
+            message.error('Account creation failed!');
+        }
     }
 
 

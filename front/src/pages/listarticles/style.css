@@ -1,0 +1,19 @@
+.adminCreateNewsListBlock {
+    background: rgba(194, 184, 184, 0.2);
+    padding: 15px;
+    /* border: red 1px solid; */
+}
+
+.blockTitleNewArticle {
+    height: 65px;
+}
+
+.adminCreateNewsListBlockitem {
+    height: 110px;
+}
+
+.blockTitleNewArticleText {
+    font-size: 15px;
+    color: black !important;
+    line-height: 20px;
+}

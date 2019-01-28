@@ -14,6 +14,8 @@ async function create(newUser) {
     const response = await axios.post(`${url}/user`, newUser)
     return response
   } catch (error) {
+    console.log(error);
+    
     return null
   }
 }
